@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a84ff">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>My PWA App</title>
+</head>
+<body>
+  <main id="content">
+    <section id="home" class="page active">
+      <h1>🏠 Home</h1>
+      <p>Welcome to your native-like PWA!</p>
+    </section>
+
+    <section id="notifications" class="page">
+      <h1>🔔 Notifications</h1>
+      <button id="notify-btn">Schedule 10s Notification</button>
+    </section>
+
+    <section id="offline" class="page">
+      <h1>📴 Offline Mode</h1>
+      <p id="offline-status">You are online ✅</p>
+    </section>
+  </main>
+
+  <nav class="tab-bar">
+    <button data-page="home">Home</button>
+    <button data-page="notifications">Notifications</button>
+    <button data-page="offline">Offline</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>

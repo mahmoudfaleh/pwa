@@ -1,0 +1,51 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #f2f2f7;
+  color: #111;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page.active {
+  display: flex;
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  border-top: 1px solid #ccc;
+  padding: 0.5rem 0;
+  position: sticky;
+  bottom: 0;
+}
+
+.tab-bar button {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tab-bar button:active {
+  background: #eee;
+}
