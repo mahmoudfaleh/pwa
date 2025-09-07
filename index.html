@@ -8,30 +8,50 @@
   <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>My PWA App</title>
 </head>
 <body>
+  <header>
+    <h1>PWA Tester</h1>
+  </header>
+
   <main id="content">
     <section id="home" class="page active">
-      <h1>🏠 Home</h1>
-      <p>Welcome to your native-like PWA!</p>
+      <h2>🏠 Home</h2>
+      <p>Welcome to your native-like PWA test app!</p>
     </section>
 
     <section id="notifications" class="page">
-      <h1>🔔 Notifications</h1>
+      <h2>🔔 Notifications</h2>
       <button id="notify-btn">Schedule 10s Notification</button>
     </section>
 
     <section id="offline" class="page">
-      <h1>📴 Offline Mode</h1>
+      <h2>📴 Offline Mode</h2>
       <p id="offline-status">You are online ✅</p>
+    </section>
+
+    <section id="tests" class="page">
+      <h2>🧪 PWA Tests</h2>
+      <button onclick="checkSW()">Check Service Worker</button>
+      <button onclick="checkCache()">Check Cache</button>
+      <button onclick="navigator.vibrate([200,100,200])">Vibrate</button>
+      <pre id="test-output"></pre>
+    </section>
+
+    <section id="webview" class="page">
+      <h2>🌐 WebView</h2>
+      <iframe src="about.html"></iframe>
     </section>
   </main>
 
   <nav class="tab-bar">
-    <button data-page="home">Home</button>
-    <button data-page="notifications">Notifications</button>
-    <button data-page="offline">Offline</button>
+    <button data-page="home">🏠<span>Home</span></button>
+    <button data-page="notifications">🔔<span>Notify</span></button>
+    <button data-page="offline">📴<span>Offline</span></button>
+    <button data-page="tests">🧪<span>Tests</span></button>
+    <button data-page="webview">🌐<span>WebView</span></button>
   </nav>
 
   <script src="app.js"></script>

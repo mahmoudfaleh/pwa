@@ -17,11 +17,6 @@ buttons.forEach(btn => {
 
 // Timer Notifications
 document.getElementById("notify-btn").addEventListener("click", () => {
-  if (!("Notification" in window)) {
-    alert("This browser does not support notifications.");
-    return;
-  }
-
   Notification.requestPermission().then(permission => {
     if (permission === "granted") {
       alert("Notification scheduled in 10 seconds...");
@@ -37,7 +32,6 @@ document.getElementById("notify-btn").addEventListener("click", () => {
 
 // Offline/Online Detection
 const offlineStatus = document.getElementById("offline-status");
-
 function updateOnlineStatus() {
   if (navigator.onLine) {
     offlineStatus.textContent = "You are online ✅";
@@ -45,7 +39,21 @@ function updateOnlineStatus() {
     offlineStatus.textContent = "You are offline ❌ (using cached content)";
   }
 }
-
 window.addEventListener("online", updateOnlineStatus);
 window.addEventListener("offline", updateOnlineStatus);
 updateOnlineStatus();
+
+// Test functions
+function checkSW() {
+  const out = document.getElementById("test-output");
+  if (navigator.serviceWorker.controller) {
+    out.textContent = "Service Worker active: " + navigator.serviceWorker.controller.state;
+  } else {
+    out.textContent = "No active Service Worker.";
+  }
+}
+
+function checkCache() {
+  const out = document.getElementById("test-output");
+  caches.keys().then(keys => out.textContent = "Caches: " + keys.join(", "));
+}

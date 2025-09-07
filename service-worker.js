@@ -1,9 +1,10 @@
-const CACHE_NAME = "pwa-cache-v3";
+const CACHE_NAME = "pwa-cache-v4";
 const ASSETS = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
+  "./about.html",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
@@ -22,17 +23,6 @@ self.addEventListener("fetch", (event) => {
           return caches.match("./index.html");
         }
       });
-    })
-  );
-});
-
-// Hook for push notifications (requires backend)
-self.addEventListener("push", (event) => {
-  const data = event.data ? event.data.text() : "Default push message";
-  event.waitUntil(
-    self.registration.showNotification("🔔 Push Notification", {
-      body: data,
-      icon: "icons/icon-192.png"
     })
   );
 });
