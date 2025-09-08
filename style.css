@@ -32,17 +32,11 @@ main {
   display: block;
 }
 
-iframe {
-  width: 100%;
-  height: 70vh;
-  border: none;
-  border-radius: 8px;
-  background: white;
-}
 
-box {
+/*im never using chatgpt code again - 67*/
+.cacatime {
   border-radius: 25px;
-  background: #ffffff;
+  background: #000000;
   padding: 20px; 
   width: 200px;
   height: 150px;  
@@ -79,4 +73,12 @@ box {
 
 .tab-bar button:active {
   background: #eee;
+}
+
+iframe {
+  width: 100%;
+  height: 70vh;
+  border: none;
+  border-radius: 8px;
+  background: white;
 }
