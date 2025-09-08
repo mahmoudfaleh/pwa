@@ -11,11 +11,11 @@ body {
 header {
   background: #0a84ff;
   color: white;
-  padding: 0.5rem;
   text-align: center;
   font-size: 1.3rem;
   position: sticky;
   top: 0;
+  padding: env(safe-area-inset-top) 0 0 env(safe-area-inset-left);
 }
 
 main {
@@ -39,6 +39,15 @@ iframe {
   border-radius: 8px;
   background: white;
 }
+
+box {
+  border-radius: 25px;
+  background: #ffffff;
+  padding: 20px; 
+  width: 200px;
+  height: 150px;  
+}
+
 
 /* Bottom nav bar */
 .tab-bar {
