@@ -131,24 +131,7 @@ main {
 }
 
 
-html, body {
-  height: 100%;
-  overflow: hidden; /* prevent body scrolling */
-  touch-action: none; /* prevent panning & pinch globally */
-  -webkit-user-select: none; /* optional: disables text selection */
-}
 
-main {
-  flex: 1;
-  overflow-y: auto; /* only main scrolls */
-  -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
-  touch-action: pan-y; /* allow vertical scrolling only inside main */
-}
-
-.tab-bar {
-  /* ...all your existing styles... */
-  bottom: calc(env(safe-area-inset-bottom) + 0px); /* keeps your margin but removes white space */
-}
 
 
 
