@@ -1,10 +1,9 @@
-const CACHE_NAME = "pwa-cache-v4";
+const CACHE_NAME = "pwa-0.6.1";
 const ASSETS = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
-  "./about.html",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
