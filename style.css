@@ -22,10 +22,12 @@ header {
   border-bottom-left-radius: 36px;
 }
 
+
 main {
   flex: 1;
   overflow-y: auto;
   padding: 1rem;
+  padding-bottom: 130px; /* adjust based on nav-bar height + margins */
 }
 
 .page {
