@@ -145,4 +145,10 @@ main {
   touch-action: pan-y; /* allow vertical scrolling only inside main */
 }
 
+.tab-bar {
+  /* ...all your existing styles... */
+  bottom: calc(env(safe-area-inset-bottom) + 0px); /* keeps your margin but removes white space */
+}
+
+
 
