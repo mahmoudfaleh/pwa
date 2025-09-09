@@ -226,6 +226,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// Prevent dragging/panning outside main content
+document.addEventListener('touchmove', function(e) {
+  if (!e.target.closest('main')) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+// Optional: prevent double-tap zoom on iOS
+let lastTouch = 0;
+document.addEventListener('touchend', function(e) {
+  const now = new Date().getTime();
+  if (now - lastTouch <= 300) {
+    e.preventDefault();
+  }
+  lastTouch = now;
+}, false);
+
+
+
 
 
 

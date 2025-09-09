@@ -130,3 +130,19 @@ main {
   padding-bottom: 130px; /* adjust based on nav-bar height + margins */
 }
 
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* prevent body scrolling */
+  touch-action: none; /* prevent panning & pinch globally */
+  -webkit-user-select: none; /* optional: disables text selection */
+}
+
+main {
+  flex: 1;
+  overflow-y: auto; /* only main scrolls */
+  -webkit-overflow-scrolling: touch; /* smooth iOS scrolling */
+  touch-action: pan-y; /* allow vertical scrolling only inside main */
+}
+
+
