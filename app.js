@@ -10,23 +10,22 @@ const buttons = document.querySelectorAll(".tab-bar button");
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
-    pages.forEach(p => p.classList.remove("active"));
-    document.getElementById(btn.dataset.page).classList.add("active");
-  });
-});
+    const target = document.getElementById(btn.dataset.page);
+    const current = document.querySelector(".page.active");
 
-// Timer Notifications
-document.getElementById("notify-btn").addEventListener("click", () => {
-  Notification.requestPermission().then(permission => {
-    if (permission === "granted") {
-      alert("Notification scheduled in 10 seconds...");
+    // Page transition
+    if (current && current !== target) {
+      current.classList.remove("active");
       setTimeout(() => {
-        new Notification("⏰ Timer Done!", {
-          body: "This notification was triggered after 10 seconds.",
-          icon: "icons/icon-192.png"
-        });
-      }, 10000);
+        target.classList.add("active");
+      }, 50);
+    } else {
+      target.classList.add("active");
     }
+
+    // Highlight selected button
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
   });
 });
 

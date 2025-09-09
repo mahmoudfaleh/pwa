@@ -1,11 +1,13 @@
-const CACHE_NAME = "pwa-0.6.1";
+const CACHE_NAME = "pwa-0.8";
 const ASSETS = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
   "./icons/icon-192.png",
-  "./icons/icon-512.png"
+  "./icons/icon-512.png",
+  "./coolkid.webp",
+  "./ossasio.jpeg"
 ];
 
 self.addEventListener("install", (event) => {
