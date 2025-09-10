@@ -178,52 +178,7 @@ iframe.addEventListener("load", () => {
 });
 
 
-async function clearAppCache() {
-  try {
-    // 1. Clear Cache Storage (used by Service Workers)
-    if ('caches' in window) {
-      const keys = await caches.keys();
-      await Promise.all(keys.map(key => caches.delete(key)));
-      console.log("✅ All CacheStorage cleared");
-    }
 
-    // 2. Clear LocalStorage + SessionStorage
-    localStorage.clear();
-    sessionStorage.clear();
-    console.log("✅ localStorage & sessionStorage cleared");
-
-    // 3. Clear IndexedDB (if supported)
-    if (window.indexedDB && indexedDB.databases) {
-      const dbs = await indexedDB.databases();
-      await Promise.all(dbs.map(db => indexedDB.deleteDatabase(db.name)));
-      console.log("✅ IndexedDB cleared");
-    }
-
-    // 4. Unregister all Service Workers
-    if ('serviceWorker' in navigator) {
-      const regs = await navigator.serviceWorker.getRegistrations();
-      for (let reg of regs) {
-        await reg.unregister();
-        console.log("✅ Service Worker unregistered:", reg.scope);
-      }
-    }
-
-    alert("App cache cleared. Reloading...");
-    location.reload(true);
-
-  } catch (err) {
-    console.error("❌ Error clearing app cache:", err);
-    alert("Failed to clear cache. Check console for details.");
-  }
-}
-
-// Attach event to button
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.getElementById("clearCacheBtn");
-  if (btn) {
-    btn.addEventListener("click", clearAppCache);
-  }
-});
 
 
 // Prevent dragging/panning outside main content
@@ -242,6 +197,71 @@ document.addEventListener('touchend', function(e) {
   }
   lastTouch = now;
 }, false);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const clearCacheBtn = document.getElementById("clearCacheBtn");
+  const confirmModal = document.getElementById("confirmModal");
+  const cancelBtn = document.getElementById("cancelBtn");
+  const confirmBtn = document.getElementById("confirmBtn");
+
+  const testMode = false; // <-- set to true to auto-show modal
+
+  // Show modal if testMode is true
+  if (testMode) {
+    confirmModal.style.display = "flex"; // make sure CSS allows display:flex
+  }
+
+  clearCacheBtn.addEventListener("click", () => {
+    confirmModal.style.display = "flex";
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    confirmModal.style.display = "none";
+  });
+
+  confirmBtn.addEventListener("click", async () => {
+    confirmModal.style.display = "none";
+    await clearAppCache();
+  });
+});
+
+
+
+async function clearAppCache() {
+  try {
+    if ('caches' in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(key => caches.delete(key)));
+      console.log("✅ All CacheStorage cleared");
+    }
+
+    localStorage.clear();
+    sessionStorage.clear();
+    console.log("✅ localStorage & sessionStorage cleared");
+
+    if (window.indexedDB && indexedDB.databases) {
+      const dbs = await indexedDB.databases();
+      await Promise.all(dbs.map(db => indexedDB.deleteDatabase(db.name)));
+      console.log("✅ IndexedDB cleared");
+    }
+
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      for (let reg of regs) {
+        await reg.unregister();
+        console.log("✅ Service Worker unregistered:", reg.scope);
+      }
+    }
+
+    
+    location.reload(true);
+
+  } catch (err) {
+    console.error("❌ Error clearing app cache:", err);
+    alert("Failed to clear cache. Check console for details.");
+  }
+}
 
 
 
