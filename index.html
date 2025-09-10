@@ -18,47 +18,65 @@
 
   <main id="content">
     <section id="home" class="page active">
+      <section class="centered-text">
       <h2>🏠 Home</h2>
       <p>hello dasasd</p>
-    
 
-      <!-- <p id=".cacatime">Rounded corners!</p> -->
+      <button class="first">Primary Action</button>
+      </section>
     </section>
 
     <section id="tests" class="page">
-      <h2>🧪 PWA Tests</h2>
-      <button onclick="checkSW()">Check Service Worker</button>
-      <button onclick="checkCache()">Check Cache</button>
-      <button id="notify-btn">Schedule 10s Notification</button>
-      <pre id="test-output"></pre>
-      <h2>🖥️ Console View</h2>
-      <iframe id="consoleFrame"></iframe>
-      <h2>📴 Offline Mode</h2>
-      <p id="offline-status">You are online ✅</p>
-      <button id="clearCacheBtn">Clear App Cache</button>
+      <section id="" class="centered-text">
+        <h2 class="centered-text">🧪 PWA Tests</h2>
+        <button class="first" onclick="checkSW()">Check Service Worker</button>
+        <button class="first" onclick="checkCache()">Check Cache</button>
+        <button class="first" id="notify-btn">Schedule 10s Notification</button>
+        <pre id="test-output"></pre>
+        <h2 class="centered-text">🖥️ Console View</h2>
+        <iframe id="consoleFrame"></iframe>
+        <h2 class="centered-text">📴 Offline Mode</h2>
+        <p id="offline-status">You are online ✅</p>
+        <button class="first" id="clearCacheBtn">Clear App Cache</button>
+      </section>
     </section>
 
 
 
 
     <section id="ossasio" class="page">
-      <h2>🏃 ossasio eyebrow</h2>
-      <p>he is very hansome</p>
-      <img src="ossasio.jpeg" alt="ossasio">
+      <section class="centered-text">
+        <h2>🏃 ossasio eyebrow</h2>
+        <p>he is very hansome</p>
+        <img src="ossasio.jpeg" alt="ossasio">
+      </section>
     </section>
 
 
     <section id="coolkid" class="page">
-      <h2>🍩 Coolkid</h2>
-      <p>hi there, im coolkid, ima kill you i guess</p>
-      <img src="coolkid.webp" alt="coolkid ig">
-
-
+      <section class="centered-text">
+        <h2>🍩 Coolkid</h2>
+        <p>hi there, im coolkid, ima kill you i guess</p>
+        <img src="coolkid.webp" alt="coolkid ig">
+      </section>
     </section>
 
 
                                                     
-      
+    <!-- Confirmation Modal -->
+<div id="confirmModal" class="modal">
+  <div class="modal-content">
+    <div class="warning-symbol">⚠️</div>
+    <p>Are you sure you want to clear the app cache? This cannot be undone.</p>
+    <div class="modal-buttons">
+      <button class="delete" id="confirmBtn">Yes</button>
+      <button class="first" id="cancelBtn">No</button>
+    </div>
+  </div>
+</div>
+
+
+  
       
 
     
@@ -73,5 +91,15 @@
   </nav>
 
   <script src="app.js"></script>
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>
